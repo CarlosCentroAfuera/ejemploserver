@@ -7,7 +7,7 @@ import javax.swing.text.StyledEditorKit
 
 // Entity nos dice que Tarea es una clase y también será una tabla de nuestra BBDD.
 @Entity
-class Tarea(
+data class Tarea(
     var titulo : String,
     var detalles : String = "",
     var esFavorita : Boolean,

@@ -9,7 +9,7 @@ class Database {
 
     @Bean
     fun initDatabase(tareaRepository: TareaRepository): CommandLineRunner {
-        return CommandLineRunner { args: Array<String?>? ->
+        return CommandLineRunner {
             println("Base de datos creándose")
             val listaTareas = listOf(
                 Tarea("Hacer la cama", esFavorita = false),
