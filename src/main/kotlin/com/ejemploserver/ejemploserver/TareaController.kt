@@ -2,6 +2,7 @@ package com.ejemploserver.ejemploserver
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -34,5 +35,13 @@ class TareaController(private val tareaRepository: TareaRepository) {
             throw TareaNoEncontradaException(id)
         }
     }
+
+    @PostMapping("/PutTarea/{titulo}/{detalles}/{fav}")
+    fun sumaNumeros(@PathVariable titulo : String, @PathVariable detalles : String, @PathVariable fav : Boolean) {
+        tareaRepository.save(Tarea(titulo, detalles, fav))
+    }
+
+    // curl -v --request POST localhost:8081/PutTarea/Hola/Qtal/true
+
 
 }
